@@ -75,3 +75,20 @@ export default defineConfig([
 ])
 
 ```
+
+
+#  Folder Structure + React Router Setup
+
+```
+   - The Installations for this topic exist in install.txt.
+   - Created 4 folders in src folder. Components, Context, Pages and Types.
+   - Created 11 pages file in pages folder.
+   - Used **BrowserRouter** for Routing pages and imported it in 'main.tsx' (This is not suitable for big project).
+   - In 'App.tsx', imported **toaster** for toast message and styled it.
+   - Also imported **Routes** and **Route** in 'App.tsx' fot routing.
+   - There is 1 **Routes** for parent branch and 2 **Route** for sub-routing branch. One for Auth, another one is for Main pages with Nav and Footer
+   - In that sub-routing branch, created another **Route** branch. It's for login users.
+   - In **Route** for main pages, used 'AppLayout' from 'AppLayout.tsx' that contain Outlet.
+   - In 'AppLayout.tsx', writed the jsx elements that will be displayed on all pages except login page.
+   - In **Route** for login users only pages, used 'ProtectedRoute' from '@/components/ProtectedRoute' that contain Outlet.
+```

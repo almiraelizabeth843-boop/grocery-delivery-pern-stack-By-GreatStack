@@ -1,0 +1,11 @@
+
+# 4. Folder Structure + React Router Setup
+               * For Dev
+- react-router-dom --> for routing
+- react-hot-toast --> for toast message
+- lucide-react --> for icon
+- @icons-pack/react-simple-icons --> for icons pack
+- leaflet --> for display the location map
+- react-leaflet --> 
+            * For DepDev (npm install -D)
+- @types/leaflet
