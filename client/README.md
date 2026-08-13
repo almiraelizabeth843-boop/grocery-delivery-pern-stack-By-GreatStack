@@ -75,7 +75,7 @@ export default defineConfig([
 ```
 
 # Folder Structure + React Router Setup
-
+```
 - The installations for this topic are listed in install.txt.
 - Created 4 folders in the src folder: Components, Context, Pages, and Types.
 - Created 11 page files in the pages folder.
@@ -87,13 +87,12 @@ export default defineConfig([
 - In the **Route** for main pages, we used 'AppLayout' from 'AppLayout.tsx', which contains the Outlet.
 - In 'AppLayout.tsx', we wrote the JSX elements that will be displayed on all pages except the login page.
 - In the **Route** for pages accessible only to logged-in users, we used 'ProtectedRoute' from '@/components/ProtectedRoute', which contains the Outlet.
+```
 
 # Login Page
 
 ```
-    # Login Page
-
-- Created a 'Login' function expression in Login.tsx
+ - Created a 'Login' function expression in Login.tsx
 - Used the 'useState' hook to create 5 const variables for the login state
 - Also created an async 'handleSubmit' function to handle the submit button
 - Coded a div that displays content with minimum screen height and flex layout. Then divided the content into two parts: left and right.
@@ -104,4 +103,33 @@ export default defineConfig([
 - On the right side, we created a header message form. In this part, we used 'isLoginState' to show the appropriate message. When we click the button, the form and header message change on the same page without navigating to another screen.
 - After that, we created login and register forms for both Signup and Sign In. For the Signup form, we validated it using 'isLoginState' and the not (!) operator to conditionally show the name input. So, it will not appear on the Sign In form.
 - In the same form, we created a submit button with a loading icon that spins when the button is disabled. The "Sign Up" and "Sign In" texts are shown according to the form type.
+```
+
+
+# Home Page
+
+```
+ **Banner**
+  - Created 'Banner.tsx' file in the components folder. It used for the top banner ad.
+  - First, coded 'bannerVisible' a const variable using the useState. And it's not simple use. It coded by a technique which is called Lazy **Initialization**. You can checkout that in react docs or asking AI.
+  - Then, also crated 'dismissBanner' an arrow function that is for hide the banner. The first line is for recent action and the second line is for future action. If somethings change on the webpage, react will re-render. In that time, banner will appears once again. So we coded the second line because we don't want like that. In the div tag, we created the banner ads and styled it. And we mounted that banner in 'AppLayout.tsx' file to display on the top of pages.
+  - But we want another banner style which only visible on the desktop. So we created another span tags and div tags.
+  
+  **Nav bar**
+  - Created 'navbar.tsx' file in  the components folder. And mounted in 'AppLayout.tsx' file.
+  - # Navbar Component
+  - Imported icons from 'lucide-react' and navigation tools (`Link`, `useNavigate`) from 'react-router-dom'.
+  - Set up temporary dummy state data for `user` info and `cartCount` badge display.
+  - Used the `useState` hook to manage two states: `searchQuery` for search input and `userMenuOpen` for toggling the user dropdown menu.
+  - Created a `handleSearch` function to handle the search form submission, navigate to the search results page with the query parameter, and clear the input field.
+  - Created a `handleLogout` function to close the user menu and navigate back to the home page (`/`).
+  - Designed a sticky header navbar using Tailwind CSS that stays at the top of the screen on scroll.
+  - Created a logo section on the left with a `BikeIcon` that links back to the home page.
+  - Added desktop navigation links (Home, Products, Deals) that hide automatically on smaller mobile screens using `hidden md:flex`.
+  - Built a search bar with a search icon that redirects users to the product search page upon submitting.
+  - Added a shopping cart button featuring an absolute-positioned badge to show the current item count (`cartCount`).
+  - Created a conditional profile section: shows a user avatar with their first initial if logged in, or a "Sign In" button if logged out.
+  - Built a responsive user dropdown menu that opens on avatar click and closes when clicking outside via an invisible fixed backdrop overlay.
+  - Included links inside the dropdown menu for 'My Orders', 'Addresses', and an 'Admin Panel' (visible only if `user.isAdmin` is true).
+  - Added mobile-only navigation links inside the dropdown menu so mobile users can still access 'Products' and 'Deals'.
 ```
